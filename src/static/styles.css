@@ -74,15 +74,69 @@ section h3 {
   margin-bottom: 8px;
 }
 
+/* Participant info section - prettier participant list inside activity cards */
 .activity-card ul {
-  list-style-type: disc;
-  margin-left: 20px;
-  padding-left: 0;
+  list-style: none; /* hide default bullets */
+  margin: 10px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
+/* Each participant appears as a small row/card with an avatar dot */
 .activity-card li {
-  margin-bottom: 5px;
-  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+  color: #334155;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+/* Circular avatar-like dot before each participant */
+.activity-card li::before {
+  content: "";
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #90caf9 0%, #1e88e5 100%);
+  flex: 0 0 36px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
+}
+
+/* Muted secondary text if the li contains extra info (email/domain) */
+.activity-card li small {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-left: 6px;
+}
+
+/* Compact count/summary for participants (if you later add a .participant-count element) */
+.activity-card .participant-count {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 8px;
+  background: #eef2ff;
+  color: #312e81;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Empty-state styling when there are no participants */
+.activity-card .no-participants {
+  padding: 10px;
+  border-radius: 6px;
+  background: #fff8e1;
+  border: 1px solid #ffecb3;
+  color: #7a5900;
+  font-size: 0.95rem;
 }
 
 .form-group {
